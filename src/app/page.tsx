@@ -1,6 +1,8 @@
 // src/app/page.tsx
 import { Button } from 'antd';
 import Link from 'next/link';
+import 'antd/dist/reset.css';
+import UserTable from './onlineList';
 
 export default function HomePage() {
   return (
@@ -15,6 +17,10 @@ export default function HomePage() {
       </Link>
 
       {/* ... rest of your homepage content ... */}
+      <div style={{ padding: 24 }}>
+        <UserTable />
+      </div>  
+
     </div>
   );
 }

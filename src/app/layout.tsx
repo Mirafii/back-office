@@ -1,6 +1,16 @@
-// src/app/layout.tsx
-import Link from 'next/link';
-import { Button } from 'antd';
+// app/layout.tsx
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import AppLayout from './appLayout';
+import 'antd/dist/reset.css'; // Add this at the top
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'My Refine App',
+  description: 'NextJS Refine Project',
+};
 
 export default function RootLayout({
   children,
@@ -9,23 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {/* Navigation Bar */}
-        <nav className="bg-gray-100 p-4">
-          <div className="flex gap-4">
-            <Link href="/">
-              <Button>Home</Button>
-            </Link>
-            <Link href="/about">
-              <Button>About</Button>
-            </Link>
-          </div>
-        </nav>
-        
-        {/* Page Content */}
-        <div className="p-4">
-          {children}
-        </div>
+      <body className={inter.className}>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );
